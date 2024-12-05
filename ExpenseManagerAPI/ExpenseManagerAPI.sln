@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseManagerAPI", "ExpenseManagerAPI.csproj", "{B9E8CF58-E54B-4501-B0FA-7945A37F883E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpenseManagerAPI", "ExpenseManagerAPI.csproj", "{B9E8CF58-E54B-4501-B0FA-7945A37F883E}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "ExpenseManagerAngular", "..\ExpenseManagerAngular\ExpenseManagerAngular.esproj", "{001FCB80-7CF2-4DF6-93EE-FDC30B165821}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,12 @@ Global
 		{B9E8CF58-E54B-4501-B0FA-7945A37F883E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9E8CF58-E54B-4501-B0FA-7945A37F883E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9E8CF58-E54B-4501-B0FA-7945A37F883E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{001FCB80-7CF2-4DF6-93EE-FDC30B165821}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{001FCB80-7CF2-4DF6-93EE-FDC30B165821}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{001FCB80-7CF2-4DF6-93EE-FDC30B165821}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{001FCB80-7CF2-4DF6-93EE-FDC30B165821}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{001FCB80-7CF2-4DF6-93EE-FDC30B165821}.Release|Any CPU.Build.0 = Release|Any CPU
+		{001FCB80-7CF2-4DF6-93EE-FDC30B165821}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
