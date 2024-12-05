@@ -1,1 +1,17 @@
-<p>categories works!</p>
+<div class="container">
+  <h2>Categories</h2>
+  <form (submit)="addCategory()">
+    <div class="mb-3">
+      <label for="categoryName" class="form-label">Category Name</label>
+      <input type="text" class="form-control" id="categoryName" [(ngModel)]="newCategory.name" name="name" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Category</button>
+  </form>
+
+  <ul class="list-group mt-4">
+    <li class="list-group-item" *ngFor="let category of categories">
+      {{ category.name }}
+      <button class="btn btn-danger btn-sm float-end" (click)="deleteCategory(category.id)">Delete</button>
+    </li>
+  </ul>
+</div>
