@@ -1,1 +1,25 @@
-<p>expenses works!</p>
+<div class="container">
+  <h2>Expenses</h2>
+  <form (submit)="addExpense()">
+    <div class="mb-3">
+      <label for="expenseTitle" class="form-label">Title</label>
+      <input type="text" class="form-control" id="expenseTitle" [(ngModel)]="newExpense.title" name="title" required>
+    </div>
+    <div class="mb-3">
+      <label for="expenseAmount" class="form-label">Amount</label>
+      <input type="number" class="form-control" id="expenseAmount" [(ngModel)]="newExpense.amount" name="amount" required>
+    </div>
+    <div class="mb-3">
+      <label for="expenseCategory" class="form-label">Category ID</label>
+      <input type="number" class="form-control" id="expenseCategory" [(ngModel)]="newExpense.categoryId" name="categoryId" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Expense</button>
+  </form>
+
+  <ul class="list-group mt-4">
+    <li class="list-group-item" *ngFor="let expense of expenses">
+      {{ expense.title }} - ${{ expense.amount }}
+      <button class="btn btn-danger btn-sm float-end" (click)="deleteExpense(expense.id)">Delete</button>
+    </li>
+  </ul>
+</div>
