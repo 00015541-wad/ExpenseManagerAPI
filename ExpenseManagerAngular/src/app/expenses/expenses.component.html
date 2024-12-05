@@ -1,25 +1,39 @@
-<div class="container">
+<div class="container mt-4">
   <h2>Expenses</h2>
-  <form (submit)="addExpense()">
+  <button class="btn btn-primary mb-3" (click)="toggleCreateMode()">Create New</button>
+
+  <form *ngIf="createMode" (submit)="addOrUpdateExpense()">
     <div class="mb-3">
       <label for="expenseTitle" class="form-label">Title</label>
-      <input type="text" class="form-control" id="expenseTitle" [(ngModel)]="newExpense.title" name="title" required>
+      <input type="text" class="form-control" id="expenseTitle" [(ngModel)]="currentExpense.title" name="title" required>
     </div>
     <div class="mb-3">
       <label for="expenseAmount" class="form-label">Amount</label>
-      <input type="number" class="form-control" id="expenseAmount" [(ngModel)]="newExpense.amount" name="amount" required>
+      <input type="number" class="form-control" id="expenseAmount" [(ngModel)]="currentExpense.amount" name="amount" required>
     </div>
     <div class="mb-3">
-      <label for="expenseCategory" class="form-label">Category ID</label>
-      <input type="number" class="form-control" id="expenseCategory" [(ngModel)]="newExpense.categoryId" name="categoryId" required>
+      <label for="expenseDescription" class="form-label">Description</label>
+      <textarea class="form-control" id="expenseDescription" [(ngModel)]="currentExpense.description" name="description"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Add Expense</button>
+    <div class="mb-3">
+      <label for="expenseCategory" class="form-label">Category</label>
+      <select class="form-select" id="expenseCategory" [(ngModel)]="currentExpense.categoryId" name="categoryId" required>
+        <option *ngFor="let category of categories" [value]="category.id">
+          {{ category.name }}
+        </option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success">{{ currentExpense.id ? 'Update' : 'Create' }}</button>
+    <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
   </form>
 
-  <ul class="list-group mt-4">
-    <li class="list-group-item" *ngFor="let expense of expenses">
-      {{ expense.title }} - ${{ expense.amount }}
-      <button class="btn btn-danger btn-sm float-end" (click)="deleteExpense(expense.id)">Delete</button>
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let expense of expenses">
+      {{ expense.title }} - ${{ expense.amount }} ({{ getCategoryName(expense.categoryId) }})
+      <div>
+        <button class="btn btn-warning btn-sm me-2" (click)="editExpense(expense)">Update</button>
+        <button class="btn btn-danger btn-sm" (click)="deleteExpense(expense.id)">Delete</button>
+      </div>
     </li>
   </ul>
 </div>
